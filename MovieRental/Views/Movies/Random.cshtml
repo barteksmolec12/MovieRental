@@ -1,4 +1,4 @@
-﻿@using System.Reflection
+﻿
 
 @{
     @model MovieRental.ViewModels.RandomMovieViewModel
@@ -6,9 +6,21 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.Movie.Name</h2>
-@foreach (var customer in Model.Customers)
+<h2 > @Model.Movie.Name</h2>
+
+@if (Model.Customers.Count==0)
 {
-    <h3>@customer.Name</h3>
+    <p>
+        Not customers
+    </p>
 }
 
+else
+{
+
+foreach (var customer in Model.Customers)
+{
+    <p>@customer.Name</p>
+}
+
+}
